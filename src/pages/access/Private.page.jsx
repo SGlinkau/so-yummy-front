@@ -16,7 +16,7 @@ export default function PrivatePage({
   const isRefreshing = useSelector(selectIsRefreshing);
   const shouldRedirect = !isRefreshing && !token;
 
-  return shouldRedirect ? (
+  return !shouldRedirect ? (
     <Navigate to={redirect} state={{ from: location }} replace />
   ) : (
     Component
