@@ -1,5 +1,5 @@
 // import Header from '../Header';
-// import { Footer } from '../../components/Footer/Footer';
+import Footer from '../Footer/Footer';
 import MainSection from 'components/common/Main/Main';
 import { SharedLayoutContainer } from './SharedLayout.styled';
 
@@ -8,7 +8,7 @@ export default function SharedLayout() {
     <SharedLayoutContainer>
       {/* <Header /> */}
       <MainSection />
-      {/* <Footer /> */}
+      <Footer />
     </SharedLayoutContainer>
   );
 }
