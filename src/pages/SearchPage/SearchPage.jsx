@@ -12,6 +12,7 @@ import { Container } from 'components/common/Container.styled';
 import SearchBar from 'components/SearchBar/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList';
 import MainPageTitle from 'components/MainPageTitle/MainPageTitle';
+import NeedSearching from 'components/NeedSearching/NeedSearching';
 
 const SearchPage = () => {
   useScrollToTop();
@@ -84,7 +85,7 @@ const SearchPage = () => {
   return (
     <section className={css.searchPage}>
       <Container>
-        <MainPageTitle title={'Search'} />
+        <MainPageTitle namePage={'Search'} />
         <SearchContextProvider
           value={{
             recipes,
@@ -97,13 +98,13 @@ const SearchPage = () => {
           }}
         >
           <SearchBar />
-          {recipes.length ? (
+          {recipes ? (
             <div className={css.wrapper}>
               <SearchedRecipesList />
               {pagination.current.totalPages > 1 && <Pagination />}
             </div>
           ) : (
-            <>{!isLoading && <p>err</p>}</>
+            <>{!isLoading && <NeedSearching />}</>
           )}
         </SearchContextProvider>
       </Container>

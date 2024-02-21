@@ -1,87 +1,57 @@
-import { useEffect, useRef } from 'react';
+import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { currentThunk } from 'redux/auth/auth.thunk';
-import { selectAccessToken, selectCurrent } from 'redux/auth/auth.selectors';
-// import AppToastContainer from './AppToastContainer/AppToastContainer';
-// import SharedLayout from './SharedLayout/SharedLayout';
-import { routes } from 'constants/routes';
-import { RestrictedPage } from 'pages/access';
-// import AuthLayout from './layouts/auth';
-import MainLoader from './MainLoader/MainLoader';
-import SearchTypeSelector from './SearchTypeSelector/SearchTypeSelector';
 
-// const WelcomePage = lazy(() => import('pages/WelcomePage'));
-// const RegisterPage = lazy(() => import('pages/Auth/RegisterPage'));
-// const SigninPage = lazy(() => import('pages/Auth/SigninPage'));
-// const MainPage = lazy(() => import('pages/MainPage'));
-// const CategoriesPage = lazy(() => import('pages/CategoriesPage'));
-// const CategoryRecipes = lazy(() => import('components/CategoryRecipes'));
-// const FavoritePage = lazy(() => import('pages/FavoritePage'));
-// const OwnRecipesPage = lazy(() => import('pages/OwnRecipesPage'));
-// const AddRecipePage = lazy(() => import('pages/AddRecipePage'));
-// const RecipeInfoPage = lazy(() => import('pages/RecipeInfoPage'));
-// const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
-// const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
-// const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
+import { routes } from 'constants/routes';
+import { PrivatePage, RestrictedPage } from 'pages/access';
+import AuthLayout from './AuthLayout/AuthLayout';
+import SharedLayout from './SharedLayout/SharedLayout';
+
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
+const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const { isLoading } = useSelector(selectCurrent);
-  const accessToken = useSelector(selectAccessToken);
-  const isFirst = useRef(true);
-
-  useEffect(() => {
-    if (accessToken && isFirst.current) {
-      dispatch(currentThunk());
-      isFirst.current = false;
-    }
-  }, [dispatch, accessToken]);
-
-  if (isLoading) return <MainLoader />;
-
   return (
     <>
       <Routes>
         <Route
           path={routes.WELCOME_PAGE}
-          element={<RestrictedPage component={<SearchTypeSelector />} />}
+          element={<RestrictedPage component={<WelcomePage />} />}
         />
 
-        {/* <Route path={routes.MAIN_PAGE} element={<AuthLayout />}>
+        <Route path={routes.MAIN_PAGE} element={<AuthLayout />}>
           <Route
             path={routes.REGISTER_PAGE}
-            element={<RestrictedPage component={<RegisterPage />} />}
+            element={<RestrictedPage component={<p>RegisterPage</p>} />}
           />
           <Route
             path={routes.SIGNIN_PAGE}
-            element={<RestrictedPage component={<SigninPage />} />}
+            element={<RestrictedPage component={<p>SigninPage</p>} />}
           />
-        </Route> */}
+        </Route>
 
-        {/* <Route path={routes.MAIN_PAGE} element={<SharedLayout />}>
-          <Route index element={<PrivatePage component={<MainPage />} />} />
+        <Route path={routes.MAIN_PAGE} element={<SharedLayout />}>
+          <Route index element={<PrivatePage component={<p>MainPage</p>} />} />
           <Route
             path={routes.CATEGORIES_PAGE}
-            element={<PrivatePage component={<CategoriesPage />} />}
+            element={<PrivatePage component={<p>CATEGORIES_PAGE</p>} />}
           >
-            <Route path=":categoryName" element={<CategoryRecipes />} />
+            <Route path=":categoryName" element={<p>:categoryName</p>} />
           </Route>
           <Route
             path={routes.FAVORITE_PAGE}
-            element={<PrivatePage component={<FavoritePage />} />}
+            element={<PrivatePage component={<p>FAVORITE_PAGE</p>} />}
           />
           <Route
             path={routes.MY_RECIPES_PAGE}
-            element={<PrivatePage component={<OwnRecipesPage />} />}
+            element={<PrivatePage component={<p>MY_RECIPES_PAGE</p>} />}
           />
           <Route
             path={routes.ADD_RECIPE_PAGE}
-            element={<PrivatePage component={<AddRecipePage />} />}
+            element={<PrivatePage component={<p>.ADD_RECIPE_PAGE</p>} />}
           />
           <Route
             path={`${routes.RECIPE_PAGE}/:recipeId`}
-            element={<PrivatePage component={<RecipeInfoPage />} />}
+            element={<PrivatePage component={<p>RECIPE_PAGE</p>} />}
           />
           <Route
             path={routes.SEARCH_PAGE}
@@ -89,12 +59,11 @@ export const App = () => {
           />
           <Route
             path={routes.SHOPPING_LIST_PAGE}
-            element={<PrivatePage component={<ShoppingListPage />} />}
+            element={<PrivatePage component={<p>SHOPPING_LIST_PAGE</p>} />}
           />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route> */}
+          <Route path="*" element={<p>404</p>} />
+        </Route>
       </Routes>
-      {/* <AppToastContainer /> */}
     </>
   );
 };
