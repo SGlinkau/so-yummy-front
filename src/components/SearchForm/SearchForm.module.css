@@ -1,0 +1,101 @@
+.formWrapper {
+  clip-path: inset(0px 0px 0px 0px round 20px 50px 20px 50px);
+  width: 296px;
+  height: 54px;
+  margin-bottom: 24px;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 16px 32px;
+  clip-path: inset(2px 1px 1px 2px round 20px 50px 20px 50px);
+  width: 295px;
+  height: 53px;
+  background-color: #f0f0f0;
+}
+
+.form__input {
+  display: inline-block;
+  background: transparent;
+  padding-left: 4px;
+  padding-right: 4px;
+  width: 117px;
+  height: 21px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.form__input:focus {
+  background: transparent;
+  background-color: transparent;
+}
+
+.form__input::placeholder {
+  line-height: 1.5;
+  background: transparent;
+  background-color: transparent;
+}
+
+.form__button {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 42px;
+  width: 113px;
+  height: 53px;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #8baa36;
+  color: #fafafa;
+  clip-path: inset(26px 0px 24px 0px round 15px 35px 15px 35px);
+}
+
+.form__button:hover {
+  background-color: #22252a;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .formWrapper {
+    width: 363px;
+    height: 57px;
+    margin-bottom: 28px;
+  }
+
+  .form {
+    width: 363px;
+    height: 57px;
+  }
+
+  .form__button {
+    width: 161px;
+    height: 57px;
+    clip-path: inset(24px 0px 23px 0px round 15px 35px 15px 35px);
+    padding: 50px 42px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .formWrapper {
+    width: 511px;
+    height: 71px;
+  }
+
+  .form {
+    width: 510px;
+    height: 71px;
+    margin-bottom: 28px;
+  }
+
+  .form__button {
+    width: 161px;
+    height: 70px;
+    clip-path: inset(24px 0px 23px 0px round 15px 45px 15px 45px);
+    padding: 57px 42px;
+  }
+}
