@@ -5,6 +5,7 @@ import { routes } from 'constants/routes';
 import { PrivatePage, RestrictedPage } from 'pages/access';
 import AuthLayout from './AuthLayout/AuthLayout';
 import SharedLayout from './SharedLayout/SharedLayout';
+import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
@@ -47,7 +48,7 @@ export const App = () => {
           />
           <Route
             path={routes.ADD_RECIPE_PAGE}
-            element={<PrivatePage component={<p>.ADD_RECIPE_PAGE</p>} />}
+            element={<PrivatePage component={<AddRecipePage />} />}
           />
           <Route
             path={`${routes.RECIPE_PAGE}/:recipeId`}
