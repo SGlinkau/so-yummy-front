@@ -8,6 +8,7 @@ import SharedLayout from './SharedLayout/SharedLayout';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
+const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 
 export const App = () => {
   return (
@@ -39,7 +40,7 @@ export const App = () => {
           </Route>
           <Route
             path={routes.FAVORITE_PAGE}
-            element={<PrivatePage component={<p>FAVORITE_PAGE</p>} />}
+            element={<PrivatePage component={<FavoritePage />} />}
           />
           <Route
             path={routes.MY_RECIPES_PAGE}
