@@ -8,7 +8,7 @@ import SharedLayout from './SharedLayout/SharedLayout';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
-const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
+// const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 
 export const App = () => {
   return (
