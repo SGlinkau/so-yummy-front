@@ -13,7 +13,7 @@ import {
   AuthTitle,
   Devider,
   FormButtonGroup,
-  FormGoogleButton,
+  // FormGoogleButton,
   FormNavLinkButton,
   FormSubmitButton,
   FormInput,
@@ -118,7 +118,7 @@ export default function SigninPage() {
                 {isSubmitting ? 'Loading...' : 'Sign in'}
               </FormSubmitButton>
               <Devider />
-              <FormGoogleButton
+              {/* <FormGoogleButton
                 href={`${process.env.REACT_APP_API_URL}/auth/google`}
                 variant="dark"
                 w="100%"
@@ -126,7 +126,7 @@ export default function SigninPage() {
                 onClick={googleButtonClickHandler}
               >
                 Sign in with Google
-              </FormGoogleButton>
+              </FormGoogleButton> */}
             </>
           )}
         </FormButtonGroup>
