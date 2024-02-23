@@ -1,3 +1,4 @@
+import React, { lazy } from 'react';
 import { useEffect, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,9 +12,9 @@ import { RestrictedPage } from 'pages/access';
 import MainLoader from './MainLoader/MainLoader';
 import SearchTypeSelector from './SearchTypeSelector/SearchTypeSelector';
 
-// const WelcomePage = lazy(() => import('pages/WelcomePage'));
+const WelcomePage = lazy(() => import('pages/WelcomePage'));
 // const RegisterPage = lazy(() => import('pages/Auth/RegisterPage'));
-// const SigninPage = lazy(() => import('pages/Auth/SigninPage'));
+const SigninPage = lazy(() => import('pages/Auth/SigninPage'));
 // const MainPage = lazy(() => import('pages/MainPage'));
 // const CategoriesPage = lazy(() => import('pages/CategoriesPage'));
 // const CategoryRecipes = lazy(() => import('components/CategoryRecipes'));
@@ -45,19 +46,18 @@ export const App = () => {
       <Routes>
         <Route
           path={routes.WELCOME_PAGE}
-          element={<RestrictedPage component={<SearchTypeSelector />} />}
+          element={<RestrictedPage component={<WelcomePage />} />}
         />
 
-        {/* <Route path={routes.MAIN_PAGE} element={<AuthLayout />}>
-          <Route
+        {/* /* <Route path={routes.MAIN_PAGE} element={<AuthLayout />}> */}
+        {/* <Route
             path={routes.REGISTER_PAGE}
             element={<RestrictedPage component={<RegisterPage />} />}
-          />
-          <Route
-            path={routes.SIGNIN_PAGE}
-            element={<RestrictedPage component={<SigninPage />} />}
-          />
-        </Route> */}
+          /> */}
+        <Route
+          path={routes.SIGNIN_PAGE}
+          element={<RestrictedPage component={<SigninPage />} />}
+        />
 
         {/* <Route path={routes.MAIN_PAGE} element={<SharedLayout />}>
           <Route index element={<PrivatePage component={<MainPage />} />} />
