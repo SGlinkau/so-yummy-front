@@ -9,7 +9,8 @@ import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
-// const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
+const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   return (
@@ -63,7 +64,7 @@ export const App = () => {
             path={routes.SHOPPING_LIST_PAGE}
             element={<PrivatePage component={<p>SHOPPING_LIST_PAGE</p>} />}
           />
-          <Route path="*" element={<p>404</p>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>
