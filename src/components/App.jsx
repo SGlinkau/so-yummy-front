@@ -12,6 +12,9 @@ const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
+const SigninPage = lazy(() => import('pages/Auth/SigninPage'));
+const RegisterPage = lazy(() => import('pages/Auth/RegisterPage'));
+
 export const App = () => {
   return (
     <>
@@ -24,11 +27,11 @@ export const App = () => {
         <Route path={routes.MAIN_PAGE} element={<AuthLayout />}>
           <Route
             path={routes.REGISTER_PAGE}
-            element={<RestrictedPage component={<p>RegisterPage</p>} />}
+            element={<RestrictedPage component={<RegisterPage />} />}
           />
           <Route
             path={routes.SIGNIN_PAGE}
-            element={<RestrictedPage component={<p>SigninPage</p>} />}
+            element={<RestrictedPage component={<SigninPage />} />}
           />
         </Route>
 

@@ -13,6 +13,7 @@ import {
   AuthTitle,
   Devider,
   FormButtonGroup,
+  // FormGoogleButton,
   FormNavLinkButton,
   FormSubmitButton,
   FormInput,
@@ -30,7 +31,9 @@ const schema = Joi.object({
 export default function SigninPage() {
   const dispatch = useDispatch();
   const [params] = useSearchParams();
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
+
   const googleAuth = useMemo(() => Object.fromEntries(params), [params]);
   const {
     register,
@@ -68,9 +71,9 @@ export default function SigninPage() {
     //reset();
   };
 
-  const googleButtonClickHandler = () => {
-    setIsLoading(true);
-  };
+  // const googleButtonClickHandler = () => {
+  //   setIsLoading(true);
+  // };
 
   return (
     <>
