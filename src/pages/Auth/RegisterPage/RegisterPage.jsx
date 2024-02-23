@@ -8,7 +8,7 @@ import {
   AuthTitle,
   Devider,
   FormButtonGroup,
-  FormGoogleButton,
+  // FormGoogleButton,
   FormNavLinkButton,
   FormSubmitButton,
   FormInput,
@@ -67,12 +67,11 @@ export default function RegisterPage() {
         loginThunk({ email: data.email, password: data.password })
       );
     } catch (error) {}
-    //reset();
   };
 
-  const googleButtonClickHandler = () => {
-    setIsLoading(true);
-  };
+  // const googleButtonClickHandler = () => {
+  //   setIsLoading(true);
+  // };
 
   return (
     <>
@@ -129,15 +128,6 @@ export default function RegisterPage() {
                 {isSubmitting ? 'Loading...' : 'Sign up'}
               </FormSubmitButton>
               <Devider />
-              <FormGoogleButton
-                href={`${process.env.REACT_APP_API_URL}/auth/google`}
-                variant="dark"
-                w="100%"
-                h="45px"
-                onClick={googleButtonClickHandler}
-              >
-                Sign up with Google
-              </FormGoogleButton>
             </>
           )}
         </FormButtonGroup>
