@@ -6,7 +6,7 @@ import { PrivatePage, RestrictedPage } from 'pages/access';
 import AuthLayout from './AuthLayout/AuthLayout';
 import SharedLayout from './SharedLayout/SharedLayout';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
-import FavoritePage from 'pages/FavoritePage/FavoritePage';
+// import FavoritePage from 'pages/FavoritePage/FavoritePage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
