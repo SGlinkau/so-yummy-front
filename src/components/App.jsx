@@ -8,6 +8,12 @@ import SharedLayout from './SharedLayout/SharedLayout';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
 
 
+
+// import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
+// import ErrorPage from 'pages/ErrorPage/ErrorPage';
+
+
+
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
@@ -40,7 +46,7 @@ export const App = () => {
           <Route index element={<PrivatePage component={<p>MainPage</p>} />} />
           <Route
             path={routes.CATEGORIES_PAGE}
-            element={<PrivatePage component={<p>CATEGORIES_PAGE</p>} />}
+            element={<PrivatePage component={<CategoriesPage />} />}
           >
             <Route path=":categoryName" element={<p>:categoryName</p>} />
           </Route>
@@ -68,7 +74,7 @@ export const App = () => {
             path={routes.SHOPPING_LIST_PAGE}
             element={<PrivatePage component={<p>SHOPPING_LIST_PAGE</p>} />}
           />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </>

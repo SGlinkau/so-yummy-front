@@ -1,0 +1,18 @@
+import { Container } from 'components/common/Container.styled';
+import NotFound from '../../images/SVG/bro404/not-found.svg';
+import { Section } from './ErrorPage.styled';
+import { BoldText, Image, Text, TextContainer } from './ErrorPage.styled';
+
+export default function NotFoundPage() {
+  return (
+    <Section>
+      <Container>
+        <Image src={NotFound} alt="Not found" />
+        <TextContainer>
+          <BoldText>We are sorry,</BoldText>
+          <Text>but the page you were looking for can't be found..</Text>
+        </TextContainer>
+      </Container>
+    </Section>
+  );
+}
