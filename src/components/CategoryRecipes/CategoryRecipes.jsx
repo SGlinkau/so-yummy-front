@@ -1,0 +1,84 @@
+import { useParams } from 'react-router-dom';
+import { getRecipesByCategoryService } from 'services/recipe.service';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Card from 'components/common/Card/Card';
+
+import {
+  CategoryRecipesLoader,
+  CategoryRecipesWrapper,
+  CategoryRecipesItem,
+  CategoryRecipesList,
+} from './CategoryRecipes.styled';
+import useAppPagination from 'hooks/useAppPagination';
+import MainLoader from 'components/MainLoader/MainLoader';
+import { routes } from 'constants/routes';
+import { processingError } from 'helpers';
+
+export default function CategoryRecipes() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [recipes, setRecipes] = useState([]);
+  const { categoryName } = useParams();
+  const pagination = useRef({
+    page: 1,
+    totalPages: 1,
+    limit: 8,
+  });
+
+  const getRecipesByCategory = useCallback(
+    async (p = 1, l = pagination.current.limit) => {
+      setIsLoading(true);
+      const capitalized =
+        categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+
+      try {
+        const { recipes, limit, page, total } = data;
+        const { data } = await getRecipesByCategoryService(capitalized, p, l);
+
+        pagination.current.totalPages = Math.ceil(total / limit);
+        pagination.current.page = page;
+
+        setRecipes(recipes);
+      } catch (error) {
+        processingError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [categoryName]
+  );
+
+  const { Component: Pagination } = useAppPagination({
+    totalPages: pagination.current.totalPages,
+    page: pagination.current.page,
+    onFetch: p => getRecipesByCategory(p, pagination.current.limit),
+  });
+
+  useEffect(() => {
+    getRecipesByCategory();
+  }, [getRecipesByCategory]);
+
+  return (
+    <>
+      <CategoryRecipesWrapper>
+        <CategoryRecipesList isLoading={isLoading}>
+          {recipes.map(({ _id, title, thumb }) => (
+            <CategoryRecipesItem key={_id}>
+              <Card
+                src={thumb}
+                title={title}
+                to={`${routes.RECIPE_PAGE}/${_id}`}
+              />
+            </CategoryRecipesItem>
+          ))}
+        </CategoryRecipesList>
+        {isLoading && (
+          <CategoryRecipesLoader>
+            <MainLoader />
+          </CategoryRecipesLoader>
+        )}
+      </CategoryRecipesWrapper>
+
+      {pagination.current.totalPages > 1 && <Pagination />}
+    </>
+  );
+}
