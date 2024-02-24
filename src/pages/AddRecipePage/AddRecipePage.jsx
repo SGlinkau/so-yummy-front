@@ -9,6 +9,7 @@ import {
 } from './AddRecipePage.styled';
 import { useMediaQuery } from 'react-responsive';
 import { useScrollToTop } from 'hooks/useScrollToTop';
+
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
 
 export default function AddRecipePage() {
@@ -20,8 +21,8 @@ export default function AddRecipePage() {
     <AddSection>
       <Title>Add recipe</Title>
       <AddContainer>
-        <div>AddRecipeForm</div>
-        {/* <AddRecipeForm /> */}
+        {/* <div>AddRecipeForm</div> */}
+        <AddRecipeForm />
         <div>
           {isDesctop && (
             <SubContainer>

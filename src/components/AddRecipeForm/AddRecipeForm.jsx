@@ -2,11 +2,15 @@ import { addRecipeService } from 'services/recipe.service';
 import TextInput from './Inputs/Text';
 import { useState } from 'react';
 import useLocalStorage from 'hooks/useLocalStorage';
+import { useFieldArray } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { routes } from 'constants/routes';
 import { storage } from 'constants/storageKeys';
 import { toast } from 'react-toastify';
+import { schema } from './schema';
+import { yupResolver } from '@hookform/resolvers/yup';
+import File from './Inputs/File';
 
 export default function AddRecipeForm() {
   const navigate = useNavigate();
@@ -23,12 +27,29 @@ export default function AddRecipeForm() {
     ''
   );
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    mode: 'all',
+    resolver: yupResolver(schema),
+    defaultValues: {
+      thumb,
+      title,
+      description,
+      category: 'Breakfast',
+      time: '5',
+      ingredients: [{ id: '', measure: '' }],
+      instructions,
+    },
+  });
 
-  // const { fields, append, remove } = useFieldArray({
-  //   control,
-  //   name: 'ingredients',
-  // });
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'ingredients',
+  });
 
   const onSubmitHandler = async data => {
     try {
@@ -60,22 +81,32 @@ export default function AddRecipeForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <div>
-        <input
-          type="file"
-          accept="image/*,.png,.jpg,.web,.jpeg,.gif"
-          {...register('thumb', {
-            onChange: e => setFile(URL.createObjectURL(e.target.files[0])),
-          })}
-        />
-      </div>
-      <TextInput
-        // errors={errors}
-        register={register}
-        setValue={setTitle}
-        field="title"
-        placeholder="Enter item title"
-      />
+      {register && (
+        <>
+          <div>
+            <File
+              register={register}
+              setFile={setFile}
+              errors={errors}
+              thumb={thumb}
+            />
+          </div>
+          <TextInput
+            errors={errors}
+            register={register}
+            setValue={setTitle}
+            field="title"
+            placeholder="Enter item title"
+          />
+          <TextInput
+            errors={errors}
+            register={register}
+            setValue={setDescription}
+            field="description"
+            placeholder="Enter about recipe"
+          />
+        </>
+      )}
     </form>
   );
 }
