@@ -18,6 +18,11 @@ const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 const SigninPage = lazy(() => import('pages/Auth/SigninPage'));
 const RegisterPage = lazy(() => import('pages/Auth/RegisterPage'));
 
+const OwnRecipesPage = lazy(() => import('pages/OwnRecipesPage'));
+const ShoppingListPage = lazy(() =>
+  import('pages/ShoppingListPage/ShoppingListPage')
+);
+
 export const App = () => {
   return (
     <>
@@ -52,7 +57,7 @@ export const App = () => {
           />
           <Route
             path={routes.MY_RECIPES_PAGE}
-            element={<PrivatePage component={<p>MY_RECIPES_PAGE</p>} />}
+            element={<PrivatePage component={<OwnRecipesPage />} />}
           />
           <Route
             path={routes.ADD_RECIPE_PAGE}
@@ -68,7 +73,7 @@ export const App = () => {
           />
           <Route
             path={routes.SHOPPING_LIST_PAGE}
-            element={<PrivatePage component={<p>SHOPPING_LIST_PAGE</p>} />}
+            element={<PrivatePage component={<ShoppingListPage />} />}
           />
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Route>

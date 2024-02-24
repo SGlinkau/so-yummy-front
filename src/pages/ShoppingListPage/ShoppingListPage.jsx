@@ -1,6 +1,9 @@
 import ShoppingList from 'components/ShoppingList/ShoppingList';
 import { Container } from '../../components/common/Container.styled';
-import { ShoppingListTitle, ShoppingListSection } from './styled';
+import {
+  ShoppingListTitle,
+  ShoppingListSection,
+} from './ShoppingListPage.styled';
 import { useScrollToTop } from 'hooks/useScrollToTop';
 
 const ShoppingListPage = () => {
