@@ -6,6 +6,7 @@ import { PrivatePage, RestrictedPage } from 'pages/access';
 import AuthLayout from './AuthLayout/AuthLayout';
 import SharedLayout from './SharedLayout/SharedLayout';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
+import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
 // import FavoritePage from 'pages/FavoritePage/FavoritePage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
@@ -40,7 +41,7 @@ export const App = () => {
           <Route index element={<PrivatePage component={<p>MainPage</p>} />} />
           <Route
             path={routes.CATEGORIES_PAGE}
-            element={<PrivatePage component={<p>CATEGORIES_PAGE</p>} />}
+            element={<PrivatePage component={<CategoriesPage />} />}
           >
             <Route path=":categoryName" element={<p>:categoryName</p>} />
           </Route>
