@@ -7,6 +7,7 @@ import AuthLayout from './AuthLayout/AuthLayout';
 import SharedLayout from './SharedLayout/SharedLayout';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
 import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
+// import FavoritePage from 'pages/FavoritePage/FavoritePage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
