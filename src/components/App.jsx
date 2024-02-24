@@ -6,9 +6,13 @@ import { PrivatePage, RestrictedPage } from 'pages/access';
 import AuthLayout from './AuthLayout/AuthLayout';
 import SharedLayout from './SharedLayout/SharedLayout';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
-import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
-import ErrorPage from 'pages/ErrorPage/ErrorPage';
-// import FavoritePage from 'pages/FavoritePage/FavoritePage';
+
+
+
+// import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
+// import ErrorPage from 'pages/ErrorPage/ErrorPage';
+
+
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
