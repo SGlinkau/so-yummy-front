@@ -15,7 +15,7 @@ import {
   Number,
   Btn,
   BtnWrap,
-} from './styled';
+} from './ShoppingList.styled';
 
 import {
   getShoppingListThunk,
