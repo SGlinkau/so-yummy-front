@@ -13,6 +13,9 @@ import { useScrollToTop } from 'hooks/useScrollToTop';
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
 import TextInputw from 'components/AddRecipeForm/Textarea/Textarea';
 
+// import TextInputw from 'components/AddRecipeForm/Textarea/Textarea';
+
+
 export default function AddRecipePage() {
   const isDesctop = useMediaQuery({
     query: '(min-width:1440px)',
@@ -22,8 +25,10 @@ export default function AddRecipePage() {
     <AddSection>
       <Title>Add recipe</Title>
       <AddContainer>
+
         {/* <div>AddRecipeForm</div> */}
         {/* <AddRecipeForm /> */}
+
         <TextInputw/>
         <div>
           {isDesctop && (
