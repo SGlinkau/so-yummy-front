@@ -7,6 +7,7 @@ import AuthLayout from './AuthLayout/AuthLayout';
 import SharedLayout from './SharedLayout/SharedLayout';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
 import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
+import ErrorPage from 'pages/ErrorPage/ErrorPage';
 // import FavoritePage from 'pages/FavoritePage/FavoritePage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
@@ -69,7 +70,7 @@ export const App = () => {
             path={routes.SHOPPING_LIST_PAGE}
             element={<PrivatePage component={<p>SHOPPING_LIST_PAGE</p>} />}
           />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </>
