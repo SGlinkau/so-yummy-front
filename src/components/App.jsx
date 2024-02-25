@@ -17,6 +17,7 @@ import MainLoader from './MainLoader/MainLoader';
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
+const MainPage = lazy(() => import('pages/MainPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 const SigninPage = lazy(() => import('pages/Auth/SigninPage'));
@@ -71,7 +72,7 @@ export const App = () => {
         </Route>
 
         <Route path={routes.MAIN_PAGE} element={<SharedLayout />}>
-          <Route index element={<PrivatePage component={<p>MainPage</p>} />} />
+          <Route index element={<PrivatePage component={<MainPage />} />} />
           <Route
             path={routes.CATEGORIES_PAGE}
             element={<PrivatePage component={<CategoriesPage />} />}
