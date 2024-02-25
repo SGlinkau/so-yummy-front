@@ -31,7 +31,7 @@ const SearchPage = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const isTabletOrMobile = useMediaQuery({
-    maxWidth: 1439,
+    maxWidth: 1023,
   });
 
   const pagination = useRef({
@@ -100,7 +100,7 @@ const SearchPage = () => {
           <SearchBar />
           {recipes ? (
             <div className={css.wrapper}>
-              <SearchedRecipesList />
+              <SearchedRecipesList recipes={recipes} />
               {pagination.current.totalPages > 1 && <Pagination />}
             </div>
           ) : (
