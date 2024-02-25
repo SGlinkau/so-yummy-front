@@ -1,5 +1,6 @@
 // import FollowUs from 'components/Footer/componentsFooter/FollowUs/FollowUs';
 import SocialMedia from 'components/Footer/componentsFooter/FollowUs/FollowUs';
+import PopularRecipes from 'components/PopularRecipes/PopularRecipes';
 import {
   AddContainer,
   AddSection,
@@ -13,9 +14,6 @@ import { useScrollToTop } from 'hooks/useScrollToTop';
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
 import TextInputw from 'components/AddRecipeForm/Textarea/Textarea';
 
-// import TextInputw from 'components/AddRecipeForm/Textarea/Textarea';
-
-
 export default function AddRecipePage() {
   const isDesctop = useMediaQuery({
     query: '(min-width:1440px)',
@@ -25,11 +23,10 @@ export default function AddRecipePage() {
     <AddSection>
       <Title>Add recipe</Title>
       <AddContainer>
-
         {/* <div>AddRecipeForm</div> */}
         {/* <AddRecipeForm /> */}
 
-        <TextInputw/>
+        <TextInputw />
         <div>
           {isDesctop && (
             <SubContainer>
@@ -41,7 +38,9 @@ export default function AddRecipePage() {
           )}
           <SubContainer>
             <Subtitle>Populary recipe</Subtitle>
-            <div>list</div>
+            <div>
+              <PopularRecipes />
+            </div>
           </SubContainer>
         </div>
       </AddContainer>
