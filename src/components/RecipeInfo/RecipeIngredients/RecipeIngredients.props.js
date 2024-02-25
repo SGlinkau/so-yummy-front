@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { RecipeIngredietItemPropTypes } from './RecipeIngredietItem/RecipeIngredietItem.props';
+import { RecipeIngredietItemPropTypes } from './RecipeIngredietItem/RecipeIngredientItem.props';
 
 export const RecipeIngredientsPropTypes = {
   ingredients: PropTypes.arrayOf(RecipeIngredietItemPropTypes.ingredient)
