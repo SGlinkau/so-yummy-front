@@ -23,6 +23,15 @@ const ShoppingListPage = lazy(() =>
   import('pages/ShoppingListPage/ShoppingListPage')
 );
 
+const CategoriesPage = lazy(() =>
+  import('pages/CategoriesPage/CategoriesPage')
+);
+const CategoryRecipes = lazy(() => import('components/CategoryRecipes'));
+
+// const RecipeInfoPage = lazy(() =>
+//   import('pages/RecipeInfoPage/RecipeInfoPage')
+// );
+
 export const App = () => {
   return (
     <>
@@ -47,9 +56,9 @@ export const App = () => {
           <Route index element={<PrivatePage component={<p>MainPage</p>} />} />
           <Route
             path={routes.CATEGORIES_PAGE}
-            // element={<PrivatePage component={<CategoriesPage />} />}
+            element={<PrivatePage component={<CategoriesPage />} />}
           >
-            <Route path=":categoryName" element={<p>:categoryName</p>} />
+            <Route path=":categoryName" element={<CategoryRecipes />} />
           </Route>
           <Route
             path={routes.FAVORITE_PAGE}

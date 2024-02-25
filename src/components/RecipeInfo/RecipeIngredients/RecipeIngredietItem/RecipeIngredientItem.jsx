@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RecipeIngredietItemPropTypes } from './RecipeIngredietItem.props';
+import { RecipeIngredietItemPropTypes } from './RecipeIngredientItem.props';
 import {
   RecipeIngredient,
   RecipeIngredientContainer,
@@ -11,7 +11,7 @@ import {
   RecipeIngredientTitle,
   RecipeIngredietMeasure,
   RecipeIngredietMeasureText,
-} from './RecipeIngredietItem.styled';
+} from './RecipeIngredientItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectShoppingList } from 'redux/shoppingList/shoppingList.selectors';
 import {

@@ -5,7 +5,7 @@ import {
   RecipeIngredientsList,
   RecipeIngredientsTable,
 } from './RecipeIngredients.styled';
-import RecipeIngredietItem from './RecipeIngredietItem';
+import RecipeIngredietItem from './RecipeIngredietItem/RecipeIngredientItem';
 
 export default function RecipeIngredients({ recipeId, ingredients }) {
   return (
