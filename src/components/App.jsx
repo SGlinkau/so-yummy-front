@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, useEffect, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { routes } from 'constants/routes';
@@ -6,6 +6,10 @@ import { PrivatePage, RestrictedPage } from 'pages/access';
 import AuthLayout from './AuthLayout/AuthLayout';
 import SharedLayout from './SharedLayout/SharedLayout';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAccessToken, selectCurrent } from 'redux/auth/auth.selectors';
+import { currentThunk } from 'redux/auth/auth.thunk';
+import MainLoader from './MainLoader/MainLoader';
 
 // import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
 // import ErrorPage from 'pages/ErrorPage/ErrorPage';
@@ -33,6 +37,20 @@ const CategoryRecipes = lazy(() => import('components/CategoryRecipes'));
 // );
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector(selectCurrent);
+  const accessToken = useSelector(selectAccessToken);
+  const isFirst = useRef(true);
+
+  useEffect(() => {
+    if (accessToken && isFirst.current) {
+      dispatch(currentThunk());
+      isFirst.current = false;
+    }
+  }, [dispatch, accessToken]);
+
+  if (isLoading) return <MainLoader />;
+
   return (
     <>
       <Routes>
