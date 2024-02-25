@@ -100,7 +100,7 @@ const SearchPage = () => {
           <SearchBar />
           {recipes ? (
             <div className={css.wrapper}>
-              <SearchedRecipesList recipes={recipes} />
+              <SearchedRecipesList />
               {pagination.current.totalPages > 1 && <Pagination />}
             </div>
           ) : (
