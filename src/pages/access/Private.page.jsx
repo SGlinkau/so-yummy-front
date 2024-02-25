@@ -13,10 +13,8 @@ export default function PrivatePage({
 }) {
   const location = useLocation();
   const token = useSelector(selectAccessToken);
-  const isRefreshing = useSelector(selectIsRefreshing);
-  const shouldRedirect = !isRefreshing && !token;
 
-  return !shouldRedirect ? (
+  return !token ? (
     <Navigate to={redirect} state={{ from: location }} replace />
   ) : (
     Component
