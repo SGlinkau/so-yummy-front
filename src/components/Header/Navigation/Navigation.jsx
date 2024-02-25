@@ -1,46 +1,63 @@
-import { NavLink } from 'react-router-dom';
-import { NavButton, NavLinkStyled, NavSection, NavUl, Navi } from './Navigation.styled';
-import { ReactComponent as Logo } from '../../../images/SVG/Logo/logo.svg';
-import { ReactComponent as Search } from '../../../images/SVG/Search/search.svg';
-import { ReactComponent as BurgerButton } from '../../../images/burgerButton.svg';
+import { routes } from 'constants/routes';
+import { useMediaQuery } from 'react-responsive';
+import { theme } from 'theme';
+import {
+  Flex,
+  NavBar,
+  NavItem,
+  NavLinkStyled,
+  SearchIcon,
+} from './Navigation.styled';
 
-export const Navigation = () => {
+function Navigation(props) {
+  const tabletMaxWidth = theme.breakpoints[2].slice(0, -2) - 1;
+
+  const isMobileOrTablet = useMediaQuery({
+    query: `(max-width: ${tabletMaxWidth}px)`,
+  });
+
+  const { onClick } = props;
   return (
-    <NavSection>
-      <Navi>
-        <NavLink to="/home">
-          <span>
-            <Logo />
-          </span>
-        </NavLink>
-        <NavUl>
-          <li>
-            <NavLinkStyled to="/categories">Categories</NavLinkStyled>
-          </li>
-          <li>
-            <NavLinkStyled to="/add">Add recipes</NavLinkStyled>
-          </li>
-          <li>
-            <NavLinkStyled to="/my">My recipes</NavLinkStyled>
-          </li>
-          <li>
-            <NavLinkStyled to="/favorite">Favorites</NavLinkStyled>
-          </li>
-          <li>
-            <NavLinkStyled to="/shopping-list">Shopping list</NavLinkStyled>
-          </li>
-          <li>
-            <NavLink to="/search">
-              <span>
-                <Search />
-              </span>
-            </NavLink>
-          </li>
-        </NavUl>
-        <NavButton type="button">
-          <BurgerButton />
-        </NavButton>
-      </Navi>
-    </NavSection>
+    <NavBar mr={props.mr} fd={props.fd}>
+      <NavItem>
+        <NavLinkStyled to={`${routes.CATEGORIES_PAGE}`} onClick={onClick}>
+          Categories
+        </NavLinkStyled>
+      </NavItem>
+      <NavItem>
+        <NavLinkStyled to="/add " onClick={onClick}>
+          Add recipes
+        </NavLinkStyled>
+      </NavItem>
+      <NavItem>
+        <NavLinkStyled to="/my" onClick={onClick}>
+          My recipes
+        </NavLinkStyled>
+      </NavItem>
+      <NavItem>
+        <NavLinkStyled to="/favorite" onClick={onClick}>
+          Favorites
+        </NavLinkStyled>
+      </NavItem>
+      <NavItem>
+        <NavLinkStyled to="/shopping-list" onClick={onClick}>
+          Shopping list
+        </NavLinkStyled>
+      </NavItem>
+      <NavItem>
+        <NavLinkStyled to="/search" onClick={onClick}>
+          {isMobileOrTablet ? (
+            <Flex>
+              {' '}
+              <SearchIcon /> Search{' '}
+            </Flex>
+          ) : (
+            <SearchIcon />
+          )}
+        </NavLinkStyled>
+      </NavItem>
+    </NavBar>
   );
-};
+}
+
+export default Navigation;

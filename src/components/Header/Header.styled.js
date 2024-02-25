@@ -1,18 +1,21 @@
 import styled from '@emotion/styled';
-import { theme } from 'theme';
+import { Container as StyledContainer } from '../common/Container.styled';
 
+export const Container = styled(StyledContainer)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  padding-top: 1px;
+  padding-bottom: 1px;
+
+  @media screen and (min-width: ${props => props.theme.breakpoints[2]}) {
+    justify-content: start;
+  }
+`;
 export const StyledHeader = styled.header`
-  position: relativ;
-  
+  position: relative;
   z-index: 2;
 
   padding-top: 18px;
-  padding-bottom: 50px;
-  @media screen and (min-width: ${theme.breakpoints[1]}) {
-    padding-bottom: 72px;
-  }
-  @media screen and (min-width: ${theme.breakpoints[2]}) {
-    padding-bottom: 100px;
-  }
 `;
