@@ -12,7 +12,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useScrollToTop } from 'hooks/useScrollToTop';
 
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
-import TextInputw from 'components/AddRecipeForm/Textarea/Textarea';
+
 
 export default function AddRecipePage() {
   const isDesctop = useMediaQuery({
@@ -24,9 +24,9 @@ export default function AddRecipePage() {
       <Title>Add recipe</Title>
       <AddContainer>
         {/* <div>AddRecipeForm</div> */}
-        {/* <AddRecipeForm /> */}
+        <AddRecipeForm />
 
-        <TextInputw />
+        {/* <TextInputw /> */}
         <div>
           {isDesctop && (
             <SubContainer>

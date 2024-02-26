@@ -1,20 +1,23 @@
-export default function TextInput(
+import { ErrorMessage, TextLabel } from '../AddRecipeForm.styled';
+import { TextInput } from './Text.styled';
+
+export default function Text({
   register,
   setValue,
   errors,
   field,
-  placeholder
-) {
+  placeholder,
+}) {
   return (
-    <label htmlFor="">
-      <input
-        type="text"
+    <TextLabel>
+      <TextInput
         placeholder={placeholder}
+        type="text"
         {...register(field, {
           onChange: e => setValue(e.target.value),
         })}
       />
-      {errors[field] && <p>{errors[field]?.message}</p>}
-    </label>
+      {errors[field] && <ErrorMessage>{errors[field]?.message}</ErrorMessage>}
+    </TextLabel>
   );
 }
