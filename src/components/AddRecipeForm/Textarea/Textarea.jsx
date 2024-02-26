@@ -1,41 +1,21 @@
-// import React from 'react';
-// import { useForm } from 'react-hook-form';
+import {
+  RelativeContainer,
+  StyledTextarea,
+  TextAreaMessage,
+} from './Textarea.styled';
 
-// function TextInputw() {
-//   const { register, handleSubmit } = useForm();
-
-//   const onSubmit = data => console.log(data);
-
-//   return (
-//     <form onSubmit={handleSubmit(onSubmit)}>
-//       <input name="example" ref={register} />
-//       <input type="submit" />
-//     </form>
-//   );
-// }
-
-// export default TextInputw;
-
-import React, { useState } from 'react';
-
-function TextInputw() {
-  const [inputValue, setInputValue] = useState('');
-
-  const onSubmit = event => {
-    event.preventDefault();
-    console.log(inputValue);
-  };
-
+export default function Textarea({ errors, register, setInstructions }) {
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        name="example"
-        value={inputValue}
-        onChange={e => setInputValue(e.target.value)}
+    <RelativeContainer>
+      <StyledTextarea
+        placeholder="Enter recipe"
+        {...register('instructions', {
+          onChange: event => setInstructions(event.target.value),
+        })}
       />
-      <input type="submit" />
-    </form>
+      {errors.instructions && (
+        <TextAreaMessage>{errors.instructions?.message}</TextAreaMessage>
+      )}
+    </RelativeContainer>
   );
 }
-
-export default TextInputw;
