@@ -19,10 +19,11 @@ export default function PopularRecipes() {
         ? await getPopularRecipesService(2)
         : await getPopularRecipesService(4);
       setRecipes(data.recipes);
+      console.log(data);
     } catch (error) {
       processingError(error);
     }
-  }, []);
+  }, [isTablet]);
 
   useEffect(() => {
     getRecipes();
