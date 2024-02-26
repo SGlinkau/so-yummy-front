@@ -1,7 +1,7 @@
 // import { useDispatch } from 'react-redux';
 import { Controller, useFieldArray, useForm } from 'react-hook-form';
 // import Joi from 'joi';
-import { joiResolver } from '@hookform/resolvers/joi';
+// import { joiResolver } from '@hookform/resolvers/joi';
 
 import { routes } from 'constants/routes';
 import Loader from 'components/common/Loader/Loader';
@@ -42,7 +42,6 @@ import { theme } from 'theme';
 import { schema } from './schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-
 export default function AddRecipeForm() {
   const isTablet = useMediaQuery({
     query: `(min-width: calc(${theme.breakpoints[1]} - 1px))`,
@@ -69,7 +68,7 @@ export default function AddRecipeForm() {
     control,
     formState: { errors },
   } = useForm({
-    mode: 'onSubmit',
+    mode: 'all',
     resolver: yupResolver(schema),
     defaultValues: {
       defaultValues: {
