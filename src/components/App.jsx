@@ -11,9 +11,6 @@ import { selectAccessToken, selectCurrent } from 'redux/auth/auth.selectors';
 import { currentThunk } from 'redux/auth/auth.thunk';
 import MainLoader from './MainLoader/MainLoader';
 
-// import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
-// import ErrorPage from 'pages/ErrorPage/ErrorPage';
-
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
@@ -33,10 +30,6 @@ const CategoriesPage = lazy(() =>
   import('pages/CategoriesPage/CategoriesPage')
 );
 const CategoryRecipes = lazy(() => import('components/CategoryRecipes'));
-
-// const RecipeInfoPage = lazy(() =>
-//   import('pages/RecipeInfoPage/RecipeInfoPage')
-// );
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -104,7 +97,7 @@ export const App = () => {
             path={routes.SHOPPING_LIST_PAGE}
             element={<PrivatePage component={<ShoppingListPage />} />}
           />
-          {/* <Route path="*" element={<ErrorPage />} /> */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>
