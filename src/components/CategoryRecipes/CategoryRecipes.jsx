@@ -31,8 +31,8 @@ export default function CategoryRecipes() {
         categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
 
       try {
-        const { recipes, limit, page, total } = data;
         const { data } = await getRecipesByCategoryService(capitalized, p, l);
+        const { recipes, limit, page, total } = data;
 
         pagination.current.totalPages = Math.ceil(total / limit);
         pagination.current.page = page;
