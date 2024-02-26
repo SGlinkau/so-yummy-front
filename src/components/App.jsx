@@ -19,7 +19,7 @@ const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
 const RecipeInfoPage = lazy(() => import('pages/RecipeInfoPage'));
 const MainPage = lazy(() => import('pages/MainPage'));
-const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
+// const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 const SigninPage = lazy(() => import('pages/Auth/SigninPage'));
 const RegisterPage = lazy(() => import('pages/Auth/RegisterPage'));

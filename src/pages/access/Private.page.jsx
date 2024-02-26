@@ -1,9 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import {
-  selectAccessToken,
-  selectIsRefreshing,
-} from 'redux/auth/auth.selectors';
+import { selectAccessToken } from 'redux/auth/auth.selectors';
 import { AccessPropTypes } from './Access.props';
 import { routes } from 'constants/routes';
 
