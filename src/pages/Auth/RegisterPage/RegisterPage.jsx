@@ -37,8 +37,8 @@ const schema = Joi.object({
 
 export default function RegisterPage() {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
-
+  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const {
     register,
     handleSubmit,
