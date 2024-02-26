@@ -8,11 +8,17 @@ export const AddSection = styled.section`
   flex-direction: column;
   margin-left: 16px;
   gap:72px;
+  padding-top:50px;
+  padding-bottom: 100px;
   @media screen and (min-width: ${theme.breakpoints[1]}) {
     margin-left: 32px;
     gap:100px;
+    padding-top:72px;
+  padding-bottom: 200px;
   @media screen and (min-width: ${theme.breakpoints[2]}) {
     margin-left: 100px;
+    padding-top:100px;
+  
   }
 `;
 

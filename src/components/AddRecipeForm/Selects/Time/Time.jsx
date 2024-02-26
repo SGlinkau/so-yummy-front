@@ -14,7 +14,7 @@ export const Time = React.forwardRef(({ value, name, onChange }, ref) => {
     <Select
       placeholder="5 min"
       ref={ref}
-      value={value.value}
+      
       name={name}
       onChange={selectedOption => {
         onChange(selectedOption.value);

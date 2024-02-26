@@ -14,7 +14,6 @@ export const Category = React.forwardRef(({ value, name, onChange }, ref) => {
     <Select
       placeholder="Breakfast"
       ref={ref}
-      value={value.value}
       name={name}
       options={categories}
       isSearchable={false}

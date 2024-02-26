@@ -12,6 +12,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useScrollToTop } from 'hooks/useScrollToTop';
 
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
+import { Container } from 'components/common/Container.styled';
 
 
 export default function AddRecipePage() {
@@ -20,30 +21,32 @@ export default function AddRecipePage() {
   });
   useScrollToTop();
   return (
-    <AddSection>
-      <Title>Add recipe</Title>
-      <AddContainer>
-        {/* <div>AddRecipeForm</div> */}
-        <AddRecipeForm />
+    <Container>
+      <AddSection>
+        <Title>Add recipe</Title>
+        <AddContainer>
+          {/* <div>AddRecipeForm</div> */}
+          <AddRecipeForm />
 
-        {/* <TextInputw /> */}
-        <div>
-          {isDesctop && (
+          {/* <TextInputw /> */}
+          <div>
+            {isDesctop && (
+              <SubContainer>
+                <Subtitle>Follow us</Subtitle>
+                <div>
+                  <SocialMedia />
+                </div>
+              </SubContainer>
+            )}
             <SubContainer>
-              <Subtitle>Follow us</Subtitle>
+              <Subtitle>Populary recipe</Subtitle>
               <div>
-                <SocialMedia />
+                <PopularRecipes />
               </div>
             </SubContainer>
-          )}
-          <SubContainer>
-            <Subtitle>Populary recipe</Subtitle>
-            <div>
-              <PopularRecipes />
-            </div>
-          </SubContainer>
-        </div>
-      </AddContainer>
-    </AddSection>
+          </div>
+        </AddContainer>
+      </AddSection>
+    </Container>
   );
 }
