@@ -17,6 +17,7 @@ import MainLoader from './MainLoader/MainLoader';
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
+const RecipeInfoPage = lazy(() => import('pages/RecipeInfoPage'));
 const MainPage = lazy(() => import('pages/MainPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
@@ -93,7 +94,7 @@ export const App = () => {
           />
           <Route
             path={`${routes.RECIPE_PAGE}/:recipeId`}
-            element={<PrivatePage component={<p>RECIPE_PAGE</p>} />}
+            element={<PrivatePage component={<RecipeInfoPage />} />}
           />
           <Route
             path={routes.SEARCH_PAGE}
